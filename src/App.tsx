@@ -13,7 +13,6 @@ import {
   RotateCcw,
   ArrowUpRight,
   Building2,
-  BookOpen,
 } from 'lucide-react';
 import { MountJuniperLogo } from './components/MountJuniperLogo';
 import {
@@ -26,7 +25,6 @@ import {
 
 const DEFAULT_DR_PORTRAIT = '/src/assets/images/dr_tong_official.png';
 const HERO_SUITE_IMAGE = '/src/assets/images/hero_perioperative_suite_1790926807899.jpg';
-const CLINICAL_ULTRASOUND_IMAGE = '/src/assets/images/clinical_airway_ultrasound_1790926824908.jpg';
 const STORAGE_KEY_CUSTOM_PORTRAIT = 'mount_juniper_dr_tong_portrait_v2';
 
 export default function App() {
@@ -43,7 +41,6 @@ export default function App() {
   });
   const [portraitError, setPortraitError] = useState(false);
   const [heroImgError, setHeroImgError] = useState(false);
-  const [clinicalImgError, setClinicalImgError] = useState(false);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   // Pre-Anaesthesia Preparation active step
@@ -181,10 +178,10 @@ export default function App() {
             {t.nav.hospitals}
           </a>
           <a
-            href="#publications"
+            href="#preparation"
             className="hover:text-[#007A65] hover:underline underline-offset-4 transition-colors duration-150 whitespace-nowrap"
           >
-            {t.nav.publications}
+            {t.prepSection.kicker}
           </a>
           <a
             href="#booking"
@@ -415,37 +412,6 @@ export default function App() {
                 );
               })}
             </div>
-
-            {/* Clinical Ultrasound & Monitoring Visual */}
-            <div className="mt-8">
-              <div className="relative rounded-xl overflow-hidden border border-[#DCE6E2] min-h-[260px] max-h-[360px] bg-[#14201D]">
-                {!clinicalImgError ? (
-                  <img
-                    src={CLINICAL_ULTRASOUND_IMAGE}
-                    alt="Ultrasound-guided regional anaesthesia and physiological monitoring equipment"
-                    referrerPolicy="no-referrer"
-                    onError={() => setClinicalImgError(true)}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-tr from-[#0B3B31] to-[#007A65] flex items-center justify-center p-8">
-                    <MountJuniperLogo variant="mark" className="w-16 h-16 opacity-50" />
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent flex flex-col justify-end p-6">
-                  <span className="text-xs text-[#E6DEC3]">
-                    {lang === 'en'
-                      ? 'Precision Ultrasound & Depth Monitoring'
-                      : '高频超声引导与精准麻醉深度监测'}
-                  </span>
-                  <p className="text-sm text-white font-medium mt-1">
-                    {lang === 'en'
-                      ? 'Evidence-based regional and general anaesthesia protocols across Singapore’s private surgical suites.'
-                      : '为新加坡各大私立医院手术室提供循证、安全的区域阻滞与全身麻醉管理。'}
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -673,112 +639,77 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECTION 5: VERIFIED ACADEMIC PUBLICATIONS & PRE-OPERATIVE PREPARATION GUIDE */}
+        {/* SECTION 5: PRE-OPERATIVE PREPARATION GUIDE */}
         <section
-          id="publications"
+          id="preparation"
           className="py-16 lg:py-24 max-w-[1280px] mx-auto px-6 lg:px-12"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            {/* Left Column: Peer-Reviewed Medical Literature (Zero Unverified Reviews) */}
-            <div className="lg:col-span-6 flex flex-col">
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-[#007A65] font-medium">
-                <BookOpen className="w-4 h-4" />
-                <span>{t.publicationsSection.kicker}</span>
-              </div>
-              <h2 className="mt-2 text-2xl sm:text-3xl font-semibold text-[#0B3B31] font-display">
-                {t.publicationsSection.title}
-              </h2>
-              <p className="mt-3 text-sm sm:text-base text-[#485B56] leading-relaxed">
-                {t.publicationsSection.description}
-              </p>
-
-              <div className="mt-8 divide-y divide-[#DCE6E2] border-y border-[#DCE6E2]">
-                {t.publicationsSection.items.map((pub, idx) => (
-                  <article key={idx} className="py-5">
-                    <div className="flex flex-wrap items-center gap-2 text-xs text-[#596D67]">
-                      <span className="font-medium text-[#007A65]">{pub.year}</span>
-                      <span aria-hidden="true">·</span>
-                      <span>{pub.journal}</span>
-                    </div>
-                    <h3 className="mt-1.5 text-base font-semibold text-[#14201D] leading-snug">
-                      {pub.title}
-                    </h3>
-                    <p className="mt-1.5 text-xs sm:text-sm text-[#485B56] leading-relaxed">
-                      {pub.context}
-                    </p>
-                  </article>
-                ))}
-              </div>
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-[#8F7C49] font-medium">
+              <span>{t.prepSection.kicker}</span>
             </div>
-
-            {/* Right Column: Interactive Pre-Anaesthesia Patient Preparation Guide */}
-            <div className="lg:col-span-6 flex flex-col">
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-[#8F7C49] font-medium">
-                <span>{t.prepSection.kicker}</span>
-              </div>
-              <h2 className="mt-2 text-2xl sm:text-3xl font-semibold text-[#0B3B31] font-display">
-                {t.prepSection.title}
-              </h2>
-              <p className="mt-3 text-sm sm:text-base text-[#485B56] leading-relaxed">
-                {t.prepSection.description}
-              </p>
-
-              {/* Interactive Step Selector Tabs */}
-              <div className="mt-6 flex flex-wrap gap-1.5 p-1 bg-[#E9F1EE] rounded-lg border border-[#D2E0DB]">
-                {t.prepSection.steps.map((step, idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    onClick={() => setActivePrepIdx(idx)}
-                    className={`flex-1 min-w-[70px] px-3 py-2 text-xs font-semibold rounded-md transition-colors cursor-pointer whitespace-nowrap ${
-                      activePrepIdx === idx
-                        ? 'bg-white text-[#0B3B31] shadow-xs'
-                        : 'text-[#485B56] hover:text-[#14201D]'
-                    }`}
-                  >
-                    {step.phase}
-                  </button>
-                ))}
-              </div>
-
-              {/* Active Step Card */}
-              {t.prepSection.steps[activePrepIdx] && (
-                <div className="mt-4 bg-white border border-[#DCE6E2] rounded-xl p-6 sm:p-7 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between text-xs text-[#007A65] font-medium">
-                      <span>{t.prepSection.steps[activePrepIdx].phase}</span>
-                      <span className="font-mono-num">
-                        {t.prepSection.steps[activePrepIdx].timeframe}
-                      </span>
-                    </div>
-                    <h3 className="mt-3 text-xl font-semibold text-[#0B3B31]">
-                      {t.prepSection.steps[activePrepIdx].title}
-                    </h3>
-                    <p className="mt-3 text-sm sm:text-base text-[#394A45] leading-relaxed">
-                      {t.prepSection.steps[activePrepIdx].guidance}
-                    </p>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-[#EBF1EE] flex items-center justify-between text-xs text-[#596D67]">
-                    <span>
-                      {lang === 'en'
-                        ? `Step ${activePrepIdx + 1} of ${t.prepSection.steps.length}`
-                        : `第 ${activePrepIdx + 1} / ${t.prepSection.steps.length} 步`}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setActivePrepIdx((prev) => (prev + 1) % t.prepSection.steps.length)
-                      }
-                      className="font-semibold text-[#007A65] hover:underline cursor-pointer"
-                    >
-                      {lang === 'en' ? 'Next Preparation Step →' : '下一步术前准备 →'}
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
+            <h2 className="mt-2 text-2xl sm:text-3xl font-semibold text-[#0B3B31] font-display">
+              {t.prepSection.title}
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-[#485B56] leading-relaxed">
+              {t.prepSection.description}
+            </p>
           </div>
+
+          {/* Interactive Step Selector Tabs */}
+          <div className="mt-8 flex flex-wrap gap-1.5 p-1 bg-[#E9F1EE] rounded-lg border border-[#D2E0DB] max-w-2xl">
+            {t.prepSection.steps.map((step, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setActivePrepIdx(idx)}
+                className={`flex-1 min-w-[70px] px-3 py-2 text-xs font-semibold rounded-md transition-colors cursor-pointer whitespace-nowrap ${
+                  activePrepIdx === idx
+                    ? 'bg-white text-[#0B3B31] shadow-xs'
+                    : 'text-[#485B56] hover:text-[#14201D]'
+                }`}
+              >
+                {step.phase}
+              </button>
+            ))}
+          </div>
+
+          {/* Active Step Card */}
+          {t.prepSection.steps[activePrepIdx] && (
+            <div className="mt-4 bg-white border border-[#DCE6E2] rounded-xl p-6 sm:p-8 max-w-3xl flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between text-xs text-[#007A65] font-medium">
+                  <span>{t.prepSection.steps[activePrepIdx].phase}</span>
+                  <span className="font-mono-num">
+                    {t.prepSection.steps[activePrepIdx].timeframe}
+                  </span>
+                </div>
+                <h3 className="mt-3 text-xl font-semibold text-[#0B3B31]">
+                  {t.prepSection.steps[activePrepIdx].title}
+                </h3>
+                <p className="mt-3 text-sm sm:text-base text-[#394A45] leading-relaxed">
+                  {t.prepSection.steps[activePrepIdx].guidance}
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-[#EBF1EE] flex items-center justify-between text-xs text-[#596D67]">
+                <span>
+                  {lang === 'en'
+                    ? `Step ${activePrepIdx + 1} of ${t.prepSection.steps.length}`
+                    : `第 ${activePrepIdx + 1} / ${t.prepSection.steps.length} 步`}
+                </span>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setActivePrepIdx((prev) => (prev + 1) % t.prepSection.steps.length)
+                  }
+                  className="font-semibold text-[#007A65] hover:underline cursor-pointer"
+                >
+                  {lang === 'en' ? 'Next Preparation Step →' : '下一步术前准备 →'}
+                </button>
+              </div>
+            </div>
+          )}
         </section>
 
         {/* SECTION 6: INTERACTIVE WHATSAPP APPOINTMENT BOOKING (+65 9780 8422) */}
