@@ -1,0 +1,6 @@
+{
+  "name": "Mount Juniper Medical — Dr Tong Qian Jun",
+  "description": "Mount Juniper Medical Pte Ltd provides specialist anaesthesia and perioperative care across major private hospitals in Singapore, led by Dr Tong Qian Jun (MBBS, MMed Anaesthesiology).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

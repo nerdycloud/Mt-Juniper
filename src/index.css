@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --juniper-deep: #0b3b31;
+    --juniper-primary: #007a65;
+    --juniper-teal: #009178;
+    --juniper-mist: #f2f7f5;
+    --juniper-canvas: #f9fbfa;
+    --champagne-gold: #c5b37f;
+    --champagne-deep: #8f7c49;
+    --ink-primary: #14201d;
+    --ink-secondary: #485b56;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--juniper-canvas);
+    color: var(--ink-primary);
+    font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  h1, h2, .font-display {
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+    text-wrap: balance;
+  }
+
+  .font-mono-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
