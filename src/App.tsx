@@ -338,29 +338,29 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECTION 2: CORE ANAESTHESIA SERVICES & EXPLICIT EXCLUSIONS */}
+        {/* SECTION 2: CORE ANAESTHESIA SERVICES */}
         <section
           id="services"
-          className="py-16 lg:py-24 bg-[#F0F5F3] border-y border-[#DCE6E2]"
+          className="py-12 sm:py-16 lg:py-24 bg-[#F0F5F3] border-y border-[#DCE6E2]"
         >
-          <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12">
             {/* Section Header */}
             <div className="max-w-2xl">
               <div className="flex items-center gap-2 text-xs sm:text-sm text-[#007A65] font-medium">
                 <span>{t.servicesSection.kicker}</span>
                 <span aria-hidden="true">·</span>
-                <span>Mount Juniper Medical Pte Ltd</span>
+                <span>Mount Juniper Medical</span>
               </div>
-              <h2 className="mt-2 text-3xl sm:text-4xl font-semibold text-[#0B3B31] font-display">
+              <h2 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#0B3B31] font-display">
                 {t.servicesSection.title}
               </h2>
-              <p className="mt-3 text-base text-[#485B56] leading-relaxed">
+              <p className="mt-2.5 text-sm sm:text-base text-[#485B56] leading-relaxed">
                 {t.servicesSection.description}
               </p>
             </div>
 
-            {/* Asymmetric Bento Grid of Numbered Services */}
-            <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Mobile-Friendly Grid of Numbered Services */}
+            <div className="mt-8 sm:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
               {t.servicesSection.items.map((service, index) => {
                 const spanClass =
                   index === 0
@@ -372,38 +372,38 @@ export default function App() {
                 return (
                   <article
                     key={service.number}
-                    className={`${spanClass} bg-white border border-[#DCE6E2] rounded-xl p-7 sm:p-8 flex flex-col justify-between`}
+                    className={`${spanClass} bg-white border border-[#DCE6E2] rounded-xl p-5 sm:p-7 flex flex-col justify-between hover:border-[#007A65]/40 transition-colors shadow-2xs`}
                   >
                     <div>
-                      <div className="flex items-baseline justify-between gap-4 border-b border-[#EBF1EE] pb-4">
-                        <span className="text-lg font-semibold text-[#007A65] font-mono-num">
+                      <div className="flex items-center justify-between gap-3 border-b border-[#EBF1EE] pb-3">
+                        <span className="text-base sm:text-lg font-bold text-[#007A65] font-mono-num">
                           {service.number}
                         </span>
-                        <span className="text-xs text-[#596D67] text-right">
+                        <span className="text-xs text-[#596D67] text-right font-medium">
                           {service.subtitle}
                         </span>
                       </div>
 
-                      <h3 className="mt-5 text-xl font-semibold text-[#14201D] leading-snug">
+                      <h3 className="mt-4 text-lg sm:text-xl font-semibold text-[#14201D] leading-snug">
                         {service.title}
                       </h3>
 
-                      <p className="mt-3 text-sm sm:text-base text-[#485B56] leading-relaxed">
+                      <p className="mt-2.5 text-sm text-[#485B56] leading-relaxed">
                         {service.description}
                       </p>
                     </div>
 
-                    <div className="mt-6 pt-5 border-t border-[#EBF1EE]">
+                    <div className="mt-5 pt-4 border-t border-[#EBF1EE]">
                       <ul className="space-y-2 text-xs sm:text-sm text-[#394A45]">
                         {service.clinicalFocus.map((point, i) => (
                           <li key={i} className="flex items-start gap-2.5">
                             <span
                               aria-hidden="true"
-                              className="text-[#007A65] font-semibold"
+                              className="text-[#007A65] font-bold text-base leading-none select-none mt-0.5"
                             >
-                              ·
+                              ✓
                             </span>
-                            <span>{point}</span>
+                            <span className="leading-snug">{point}</span>
                           </li>
                         ))}
                       </ul>
@@ -578,19 +578,19 @@ export default function App() {
         {/* SECTION 4: MAJOR PRIVATE HOSPITALS SERVED IN SINGAPORE */}
         <section
           id="hospitals"
-          className="py-16 lg:py-24 bg-white border-y border-[#DCE6E2]"
+          className="py-12 sm:py-16 lg:py-24 bg-white border-y border-[#DCE6E2]"
         >
-          <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 sm:gap-6">
               <div className="max-w-2xl">
                 <div className="flex items-center gap-2 text-xs sm:text-sm text-[#007A65] font-medium">
-                  <Building2 className="w-4 h-4" />
+                  <Building2 className="w-4 h-4 shrink-0" />
                   <span>{t.hospitalsSection.kicker}</span>
                 </div>
-                <h2 className="mt-2 text-3xl sm:text-4xl font-semibold text-[#0B3B31] font-display">
+                <h2 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#0B3B31] font-display">
                   {t.hospitalsSection.title}
                 </h2>
-                <p className="mt-3 text-base text-[#485B56] leading-relaxed">
+                <p className="mt-2 text-sm sm:text-base text-[#485B56] leading-relaxed">
                   {t.hospitalsSection.description}
                 </p>
               </div>
@@ -600,41 +600,77 @@ export default function App() {
               </p>
             </div>
 
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {t.hospitalsSection.hospitals.map((hosp, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#F9FBFA] border border-[#DCE6E2] rounded-xl p-6 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between gap-2 text-xs text-[#596D67] font-mono-num">
-                      <span>0{idx + 1}</span>
-                      <span>{hosp.area}</span>
-                    </div>
-                    <h3 className="mt-3 text-lg font-semibold text-[#0B3B31]">
-                      {hosp.name}
-                    </h3>
-                    <p className="mt-2 text-xs sm:text-sm text-[#485B56] leading-relaxed">
-                      {hosp.accreditationNote}
-                    </p>
-                  </div>
+            {/* Mobile-Friendly Hospital Selector Grid */}
+            <div className="mt-6 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+              {t.hospitalsSection.hospitals.map((hosp, idx) => {
+                const isSelected = selectedHospital === hosp.name;
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => handleSelectHospitalForBooking(hosp.name)}
+                    className={`text-left rounded-xl p-4 sm:p-5 flex flex-col justify-between transition-all duration-150 cursor-pointer active:scale-[0.99] border ${
+                      isSelected
+                        ? 'border-[#007A65] bg-[#F0F5F3] ring-2 ring-[#007A65]/20 shadow-xs'
+                        : 'border-[#DCE6E2] bg-[#F9FBFA] hover:border-[#007A65]/40 hover:bg-white'
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-2 text-xs">
+                        <span className="font-semibold text-[#007A65] bg-white border border-[#DCE6E2] px-2 py-0.5 rounded-md">
+                          {hosp.area}
+                        </span>
+                        <span className="text-[#596D67] font-mono-num font-medium">
+                          0{idx + 1}
+                        </span>
+                      </div>
 
-                  <div className="mt-5 pt-4 border-t border-[#E4ECE9] flex items-center justify-between">
-                    <button
-                      type="button"
-                      onClick={() => handleSelectHospitalForBooking(hosp.name)}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#007A65] hover:text-[#00604F] transition-colors cursor-pointer"
-                    >
-                      <span>
-                        {lang === 'en'
-                          ? 'Select for WhatsApp Booking'
-                          : '选择此医院进行 WhatsApp 预约'}
+                      <h3 className="mt-3 text-base sm:text-lg font-semibold text-[#0B3B31] leading-snug">
+                        {hosp.name}
+                      </h3>
+
+                      <p className="mt-1.5 text-xs text-[#485B56] leading-relaxed">
+                        {hosp.accreditationNote}
+                      </p>
+                    </div>
+
+                    <div className="mt-4 pt-3 border-t border-[#E4ECE9] flex items-center justify-between text-xs">
+                      {isSelected ? (
+                        <span className="inline-flex items-center gap-1.5 font-semibold text-[#007A65]">
+                          <Check className="w-3.5 h-3.5" />
+                          <span>{lang === 'en' ? 'Selected for Booking' : '已选择预约'}</span>
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 font-medium text-[#485B56] group-hover:text-[#007A65]">
+                          <span>{lang === 'en' ? 'Tap to Select' : '点击选择'}</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
+                        </span>
+                      )}
+                      <span className="text-[11px] text-[#596D67]">
+                        {lang === 'en' ? 'WhatsApp' : '微信/WhatsApp'}
                       </span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-              ))}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Quick Mobile Action Hint */}
+            <div className="mt-5 p-3.5 sm:p-4 bg-[#F9FBFA] border border-[#DCE6E2] rounded-xl flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-[#485B56]">
+              <span>
+                {lang === 'en'
+                  ? 'Have a scheduled procedure at another private hospital or day surgery suite?'
+                  : '需要在其他私立医院或日间手术中心安排麻醉？'}
+              </span>
+              <a
+                href={directWhatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-semibold text-[#007A65] hover:underline shrink-0"
+              >
+                <span>{lang === 'en' ? 'Enquire via WhatsApp (+65 9780 8422)' : 'WhatsApp 咨询专线 (+65 9780 8422)'}</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
         </section>
