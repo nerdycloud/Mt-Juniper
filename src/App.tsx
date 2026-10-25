@@ -24,7 +24,6 @@ import {
 } from './data/clinicContent';
 
 const DEFAULT_DR_PORTRAIT = '/src/assets/images/dr_tong_official.png';
-const HERO_SUITE_IMAGE = '/src/assets/images/hero_perioperative_suite_1790926807899.jpg';
 const STORAGE_KEY_CUSTOM_PORTRAIT = 'mount_juniper_dr_tong_portrait_v2';
 
 export default function App() {
@@ -40,7 +39,6 @@ export default function App() {
     }
   });
   const [portraitError, setPortraitError] = useState(false);
-  const [heroImgError, setHeroImgError] = useState(false);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   // Pre-Anaesthesia Preparation active step
@@ -309,31 +307,6 @@ export default function App() {
                 variant="brand-card"
                 className="rounded-xl shadow-xs"
               />
-
-              {/* Perioperative Suite Architectural Image with Measured Scrim */}
-              <div className="relative rounded-xl overflow-hidden border border-[#DCE6E2] aspect-16/9 bg-[#0B3B31]">
-                {!heroImgError ? (
-                  <img
-                    src={HERO_SUITE_IMAGE}
-                    alt="Modern private hospital perioperative and anaesthesia suite in Singapore"
-                    referrerPolicy="no-referrer"
-                    onError={() => setHeroImgError(true)}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-[#0B3B31] via-[#006856] to-[#14201D] flex items-center justify-center p-6">
-                    <MountJuniperLogo variant="mark" className="w-20 h-16 opacity-40" />
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-5">
-                  <p className="text-xs text-[#E6DEC3] font-medium">
-                    {t.hero.mottoLatin} · {t.hero.mottoChinese}
-                  </p>
-                  <p className="text-sm text-white font-medium mt-0.5">
-                    {t.hero.mottoMeaning}
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
